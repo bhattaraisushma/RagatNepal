@@ -1,4 +1,5 @@
-const  nav={
-    name:"Ragat Nepal",
+ export const  home={
+    title:"Donate Blood",
+    content:"Help the world survive"
     
 }
