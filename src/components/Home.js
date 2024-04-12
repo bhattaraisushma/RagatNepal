@@ -6,7 +6,7 @@ const Home = () => {
     <>
     <div className='h-[50rem] bg-red-500'>
 
-
+hello
     </div>
     </>
   )
