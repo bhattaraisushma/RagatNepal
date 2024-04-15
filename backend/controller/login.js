@@ -1,15 +1,28 @@
 import Loginmodel from '../database/Model.js'
 
 export const loginentry=async( reqdata )=>{
-    const {name,address}=reqdata
+    const {Name,Address,Password,Bloodgroup,Contact}=reqdata
     console.log(reqdata)
     const logindetail= new Loginmodel({
-        Name:name,
-        Address:address
+        Name:Name,
+        Address:Address,
+        Contact:Contact,
+        Password:Password,
+        BloodG:Bloodgroup
+       
+    
             
         })
-        const data= await logindetail.save()
+        try{
+            const data= await logindetail.save()
+            console.log("Successfully saved data")
+        }
+        catch(error)
+        {
+            console.log("Unsuccessful",error)
+        }
       
-        return data
+      
+        
        
 }
