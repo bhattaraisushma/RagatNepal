@@ -19,7 +19,7 @@ const App = () => {
         </Routes>
         </BrowserRouter>
      
-    
+
       <div className=' flex justify-center'>
         
       </div>

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
    
      const[scroll,setScroll]=useState(false)
+
   useEffect(()=>{
+
     const change=()=>{
-      if(window.scrollY>=60)
+      if(window.scrollY>=460)
       {
         setScroll(true);
        
@@ -25,15 +27,15 @@ const Navbar = () => {
   return (
 
 
-    <div className={ ` ${ scroll ? 'sticky top-0  bg-[#dd3b3b]  ': " "}  flex flex-row  bg-[#F26C6C] h-[4rem] justify-between items-center text-2xl  text-white   px-[4rem]  ` }>
+    <div className={ ` ${ scroll ? 'sticky top-0  bg-[white] text-[#e60700]  ': " "}  sticky top-0 flex flex-row  bg-[#e60700] h-[4rem] justify-between items-center text-2xl  text-white    px-[4rem]  ` }>
         <p className=' font-Inter text-2xl'>Ragat Nepal</p>
-        <div className='flex flex-row  items-centerfloat-end gap-[4rem] font-fontRoboto"'>
+        <div className='flex flex-row  items-centerfloat-end gap-[4rem] font-fontRoboto'>
          
-        <NavLink to='/' activeClassName='active-link' className='active:to-red-200 font-fontRoboto list-none  flex items-center  no-underline text-white active:underline'  >Home</NavLink>
-       <NavLink to = '/login' activeClassName="active-link"  className='flex items-center no-underline text-white active:underline '> Log in /Sign up</NavLink>
+        <Link to='/'  className=' font-fontRoboto list-none  flex items-center text-xl  no-underline text-white  active:underline'  >Home</Link>
+       <Link to = '/login'   className='flex items-center no-underline text-white active:underline   text-xl '> Log in /Sign up</Link>
       
       
-        <p>Contact</p>
+        <p className=" text-xl">Contact</p>
        
         
 

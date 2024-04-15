@@ -5,8 +5,8 @@ import Button from './Button'
 
 const Home = () => {
   return (
-    <div className="  h-full bg-hero bg-cover  bg-[#EB7979]  bg-opacity-[53%]" id="/">
-      <div className=" bg-[#EB7979] h-screen  bg-opacity-[53%]">
+    <div className="  h-[70vh] bg-cover  bg-[#e60700]  " id="/">
+      {/* <div className=" bg-[#e60700] h-screen  bg-opacity-[53%]"> */}
       
          <div className="flex   flex-col justify-center items-center h-screen   text-2xl font-fontRoboto  text-white  ">
           <div className=" text-4xl font-bold">{home.title}</div>
@@ -16,7 +16,7 @@ const Home = () => {
         </div>
 
       </div>
-    </div>
+    // </div>
   )
 }
 export default Home

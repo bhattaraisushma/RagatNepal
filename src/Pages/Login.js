@@ -20,20 +20,20 @@ const Login = () => {
      { login ? (
         <>
          
-        <label className='flex flex-col w-full' >
+        <label className='flex flex-col  w-full' >
          <p> Full Name </p>  
-          <input type=" text" value=" " className='h-8 w-full rounded-md' required  ></input>
+          <input type=" text" className='h-8 w-full rounded-md' required  ></input>
          </label>
    
          <label className='inline-block flex-col w-full' >
-          <p>Contact Number</p> <input type=" number" value=" " className='h-8 w-full rounded-md'required></input></label>
+          <p>Contact Number</p> <input type=" number"  className='h-8 w-full rounded-md'required></input></label>
    
           <label className='inline-block flex-col w-full' >
-            <p>Address </p> <input type=" address" value=" " className='h-8 w-full rounded-md' required></input></label>
+            <p>Address </p> <input type=" address"  className='h-8 w-full rounded-md' required></input></label>
   
-          <label className='inline-block flex-col w-full' ><p>Password  </p> <input type=" password" value=" "className='h-8 w-full rounded-md' required></input></label>
-          <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" value=" "className='h-8 w-full rounded-md' required></input></label>
-          <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" value=" "required className='h-8 w-full rounded-md'></input></label>
+          <label className='inline-block flex-col w-full' ><p>Password  </p> <input type=" password" className='h-8 w-full rounded-md' required></input></label>
+          <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" className='h-8 w-full rounded-md' required></input></label>
+          <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md'></input></label>
    <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Sign in?</p>
    </> )
    : 
