@@ -1,4 +1,4 @@
-import Loginmodel from '../database/Model.js'
+import Loginmodel from '../database/Model/Loginmodel.js'
 
 export const loginentry=async( reqdata )=>{
     const {Name,Address,Password,Bloodgroup,Contact}=reqdata
