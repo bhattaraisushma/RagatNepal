@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import Button from '../components/Button'
+
 import Signup from './Signup'
 import axios from 'axios'
 
@@ -23,8 +23,8 @@ const Login = () => {
     const formhandler=async()=>{
       if(password===confirmpsw)
       try{
-        {
-           const data= await axios.post("http://localhost:3000/login",{
+        
+           await axios.post("http://localhost:3000/login",{
             Name:name,
             Address:address,
             Password:password,
@@ -33,7 +33,7 @@ const Login = () => {
            
           })
           
-                }
+                
                 console.log("adeed to db")
               }
               catch(error)
@@ -68,8 +68,9 @@ const Login = () => {
   
           <label className='inline-block flex-col w-full' ><p>Password  </p> <input type=" password" value={password} onChange={(e)=>setPassword(e.target.value)} className='h-8 w-full rounded-md' required></input></label>
           <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" className='h-8 w-full rounded-md' vlaue={confirmpsw} onChange={(e)=>{setConfirmpsw(e.target.value)}} required></input></label>
-          <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md' value={blood} onChange={(e)=>{setBlood(e.target.value)}}></input></label>
+          <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md ' value={blood} onChange={(e)=>{setBlood(e.target.value)}}></input></label>
    <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Sign in?</p>
+   <button className='w-full h-12 rounded-lg bg-[red] border-0  text-white text-xl ml-2 mr-2' onClick={()=>formhandler()}>Submit</button>
    </> )
    : 
    (
@@ -77,13 +78,13 @@ const Login = () => {
      
    <Signup/>
    <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>checklog()} >Login in?</p>
-   </>
+    </>
    )
   
    }
       
      
-   <button className='w-full h-12 rounded-lg bg-[red] border-0  text-white text-xl ml-2 mr-2' onClick={()=>formhandler()}>Submit</button>
+
     
     </div>
     </div>
