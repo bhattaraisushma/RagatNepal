@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Login from './Pages/Login'
 import  {BrowserRouter,Routes,Route, } from 'react-router-dom'
+import Usersection from './Pages/Usersection'
 const App = () => {
   return (
     <div>
@@ -21,7 +22,7 @@ const App = () => {
      
 
       <div className=' flex justify-center'>
-        
+        <Usersection/>
       </div>
     </div>
   )

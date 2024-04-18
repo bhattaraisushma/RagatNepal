@@ -22,6 +22,8 @@ const Login = () => {
     }
     const formhandler=async()=>{
       if(password===confirmpsw)
+      {
+       setLogin(false)
       try{
         
            await axios.post("http://localhost:3000/login",{
@@ -31,15 +33,19 @@ const Login = () => {
             Contact: contact,
             Bloodgroup:blood
            
-          })
-          
+          }
+        
+        )
+       
                 
                 console.log("adeed to db")
+                
               }
               catch(error)
               {
                 console.log("error submitting", error)
               }
+            }
               else{
                 console.log("Password dont match")
               }
@@ -70,7 +76,7 @@ const Login = () => {
           <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" className='h-8 w-full rounded-md' vlaue={confirmpsw} onChange={(e)=>{setConfirmpsw(e.target.value)}} required></input></label>
           <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md ' value={blood} onChange={(e)=>{setBlood(e.target.value)}}></input></label>
    <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Sign in?</p>
-   <button className='w-full h-12 rounded-lg bg-[red] border-0  text-white text-xl ml-2 mr-2' onClick={()=>formhandler()}>Submit</button>
+   <button className='w-full h-12 rounded-lg bg-[red] border-0  text-white text-xl ml-2 mr-2 ' onClick={()=>formhandler()}>Submit</button>
    </> )
    : 
    (

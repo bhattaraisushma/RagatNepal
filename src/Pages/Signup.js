@@ -13,7 +13,7 @@ const Signup = () => {
        
       }
     )
-    console.log(hit.data.message)
+
 
     
    
