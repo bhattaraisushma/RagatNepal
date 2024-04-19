@@ -1,19 +1,15 @@
-import React, { createContext,useContext, useState } from 'react'
-const authcontext = createContext()
-const Authnetication = ({children}) => {
-  
-    const [authenticate,setAuthenticate]=useState(false)
-  return (
-    <div>
-      <authcontext.Provider value={{authenticate,setAuthenticate}}>
-{children}
-      </authcontext.Provider>
-    </div>
-  )
-}
-export default Authnetication;
+import { createContext, useState } from 'react'
 
-export const useAuth = () => {
-  const { authentication, setAuthentication } = useContext(AuthContext);
-  return { authentication, setAuthentication };
+const Authnav = createContext();
+
+export const Contextauth = ({ children }) => {
+  const [authentication, setAuthentication] = useState(true);
+
+  return ( 
+  <Authnav.Provider value={{ authentication, setAuthentication }}>
+      {children}
+    </Authnav.Provider>
+  );
 };
+
+export default Authnav;

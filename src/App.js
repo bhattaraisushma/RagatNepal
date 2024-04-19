@@ -1,20 +1,24 @@
 import React from 'react'
-import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Login from './Pages/Login'
 import  {BrowserRouter,Routes,Route, } from 'react-router-dom'
 import Usersection from './Pages/Usersection'
 import Signup from './Pages/Signup'
+
+import  { Contextauth} from './components/Authnetication';
+import Navbar from './components/Navbar'
 const App = () => {
   return (
-    <div>
+    
+      <Contextauth>
        
          <BrowserRouter>
          <Navbar/>
          
         <Routes>
-       
-          <Route path='/' element ={ <Home/>}/> 
+           <Route path='/' element ={ <Home/>}/> 
+           {/* <Route path='/navbar' element={<Navbar/>}></Route> */}
+         
           <Route path='/login' element={ <Login/>}> </Route>
           <Route path='/signup' element={<Signup/>}></Route>
           
@@ -24,12 +28,10 @@ const App = () => {
          
         </Routes>
         </BrowserRouter>
-     
+        </Contextauth>
 
-      <div className=' flex justify-center'>
-        {/* <Usersection/> */}
-      </div>
-    </div>
+      
+    
   )
 }
 

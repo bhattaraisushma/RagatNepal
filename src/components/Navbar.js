@@ -1,18 +1,33 @@
-import { useEffect, useState } from "react"
+import {  useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { useAuth } from "./Authnetication.js"
+import Authnav from "./Authnetication"
+
+
+ 
 
 const Navbar = () => {
-   
-const { authenticate}=useAuth()
-     const[scroll,setScroll]=useState(false)
+  const {authentication,setAuthentication} = useContext(Authnav)
 
   useEffect(()=>{
 
+        
+        setAuthentication(false)
+          console.log("hello from nav"+ authentication)
+  })
+ 
+
+  
+
+     const[scroll,setScroll]=useState(false)
+     console.log( " from nav", authentication)
+
+  useEffect(()=>{
+   
     const change=()=>{
       if(window.scrollY>=460)
       {
         setScroll(true);
+
        
       }
       else{
@@ -24,11 +39,15 @@ const { authenticate}=useAuth()
    return () => {
     window.removeEventListener('scroll', change);
   };
+
   },[])
+
+ 
     
   return (
-
-!authenticate && (<div className={ ` ${ scroll ? 'sticky top-0  bg-[white] text-[#e60700]  ': " "}  sticky top-0 flex flex-row  bg-[#e60700] h-[4rem] justify-between items-center text-2xl  text-white    px-[4rem]  ` }>
+    <>
+{!authentication && (
+<div className={ ` ${ scroll ? 'sticky top-0  bg-[white] text-[#e60700]  ': " "}  sticky top-0 flex flex-row  bg-[#e60700] h-[4rem] justify-between items-center text-2xl  text-white    px-[4rem]  ` }>
 <p className=' font-Inter text-2xl'>Ragat Nepal</p>
 <div className='flex flex-row  items-centerfloat-end gap-[4rem] font-fontRoboto'>
  
@@ -42,9 +61,12 @@ const { authenticate}=useAuth()
 
 </div>
 </div>
+ )} 
+</>
 )
 
-)}
+}
+
     
 
 export default Navbar
