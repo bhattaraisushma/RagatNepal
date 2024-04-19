@@ -1,44 +1,46 @@
 import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import axios from "axios"
 const Signup = () => {
+  const navigate=useNavigate()
   const[name,setName]=useState()
   const[psw,setPsw]=useState()
   const signincheck= async()=>{
    try{
-    console.log("clicked")
-       const hit =  await axios.post("http://localhost:3000/signup",{
+    console.log(" from signin clicked")
+        const hit = await axios.post("http://localhost:3001/signup",{
        
         Name:name,
         Password:psw
        
       }
     )
-
-
-    
-   
+    console.log(hit)
     if (hit.status === 200)
-    {
-      console.log("User found")
-    }
- else if(hit.status === 404)
- {
-  console.log("User not found")
+{
+  console.log("User found")
+  navigate('/usersection')
+ 
+}
+else if(hit.status === 404)
+{
+console.log("User not found")
 
 }
 else if(hit.status === 400)
 {
-  console.log("Password didnot match")
+console.log("Password didnot match")
 }
 else{
-  console.log("Unexpected eror")
+console.log("Unexpected eror")
 }
 }
 
 catch(error)
 {
-  console.error("idk what error",error)
+  console.error("Eroor",error)
 }
+  
 
   }
   return (

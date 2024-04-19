@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 import Signup from './Signup'
 import axios from 'axios'
 
@@ -21,6 +21,7 @@ const Login = () => {
         setLogin(true)
     }
     const formhandler=async()=>{
+      console.log("from login")
       if(password===confirmpsw)
       {
        setLogin(false)
@@ -75,7 +76,8 @@ const Login = () => {
           <label className='inline-block flex-col w-full' ><p>Password  </p> <input type=" password" value={password} onChange={(e)=>setPassword(e.target.value)} className='h-8 w-full rounded-md' required></input></label>
           <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" className='h-8 w-full rounded-md' vlaue={confirmpsw} onChange={(e)=>{setConfirmpsw(e.target.value)}} required></input></label>
           <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md ' value={blood} onChange={(e)=>{setBlood(e.target.value)}}></input></label>
-   <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Sign in?</p>
+   <Link to ='/signup'><p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Sign in?</p>
+   </Link>
    <button className='w-full h-12 rounded-lg bg-[red] border-0  text-white text-xl ml-2 mr-2 ' onClick={()=>formhandler()}>Submit</button>
    </> )
    : 

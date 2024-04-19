@@ -6,7 +6,7 @@ import { signinentry } from './controller/Signin.js';
 import Loginmodel from './database/Model/Loginmodel.js';
 
 const app=express();
-const port=3000
+const port=3001
 app.use(cors())
 app.use(express.json())
 connectdb()
@@ -29,20 +29,20 @@ app.post('/signup',async(req,res)=>{
     if(!user)
     {
         console.log("error name")
-        return res.status(404).json({"message":"User not found"})
+        return res.status(404)
     }
     const psw = user.Password === Password
     if(!psw)
     {
         console.log("error psw")
-        return res.status(400).json({"message":"Password didnot match"})
+        return res.status(400).send("user not found")
     
 }
-return res.status(200).json({"message":"user found okkk"})
-console.log("successful check")
-
-
-   }
+console.log("user found")
+    return res.status(200).send("User found")
+   
+ 
+}
  
 catch(error)
 {

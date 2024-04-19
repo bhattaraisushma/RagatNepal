@@ -4,17 +4,22 @@ import Home from './components/Home'
 import Login from './Pages/Login'
 import  {BrowserRouter,Routes,Route, } from 'react-router-dom'
 import Usersection from './Pages/Usersection'
+import Signup from './Pages/Signup'
 const App = () => {
   return (
     <div>
        
          <BrowserRouter>
          <Navbar/>
+         
         <Routes>
        
           <Route path='/' element ={ <Home/>}/> 
-          <Route path='/login' element={ <Login/>}> 
-           </Route>
+          <Route path='/login' element={ <Login/>}> </Route>
+          <Route path='/signup' element={<Signup/>}></Route>
+          
+          <Route path='/usersection'element={<Usersection/>}>
+          </Route>
 
          
         </Routes>
@@ -22,7 +27,7 @@ const App = () => {
      
 
       <div className=' flex justify-center'>
-        <Usersection/>
+        {/* <Usersection/> */}
       </div>
     </div>
   )
