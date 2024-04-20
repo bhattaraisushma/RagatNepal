@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 
 
 const Home = () => {
+
   return (
     <div className="  h-[70vh] bg-cover  bg-[#e60700]  " id="/">
    

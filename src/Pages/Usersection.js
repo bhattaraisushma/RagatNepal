@@ -1,14 +1,19 @@
 import React, { useContext, useEffect } from 'react'
 import Sidebar from '../components/Sidebar'
 import Authnav from '../components/Authnetication'
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
 const Usersection = () => {
-      const {authentication,setAuthentication} = useContext(Authnav)
+  const option=[
+"    Logout"
+  ]
+      const {authentication,setAuthentication,name, setName } = useContext(Authnav)
 
       useEffect(()=>{
 
             
             setAuthentication(true)
-              console.log("hello"+authentication)
+              console.log("hello user "+ name + authentication)
       })
      
 
@@ -19,14 +24,14 @@ const Usersection = () => {
 
         <div className="grid grid-cols-1   h-fit ">
           <div className="h-[8rem]   flex justify-between items-center  w-full  bg-[white]">
-            <p className=" text-2xl">Hello ,User</p>
+            <p className=" text-2xl">Hello ,{name}</p>
 
             <p>
               <div className="  mr-[3rem] h-[4rem] w-[4rem] rounded-full bg-[#e60700] ">
                 <img
                   src={'homebg.jpg'}
-                  className="h-[4rem] w-[4rem] rounded-full"
-                ></img>
+                  className="h-[4rem] w-[4rem] rounded-full"  ></img>
+                  <Dropdown options={option} placeholder={ "Settings"} className='w-[4rem]  bg-[red]'></Dropdown>
               </div>
               {/* <p className='text-2xl'>Your profile</p> */}
             </p>

@@ -7,6 +7,7 @@ import Signup from './Pages/Signup'
 
 import  { Contextauth} from './components/Authnetication';
 import Navbar from './components/Navbar'
+import About from './components/About'
 const App = () => {
   return (
     
@@ -28,9 +29,10 @@ const App = () => {
          
         </Routes>
         </BrowserRouter>
+        <About/>
         </Contextauth>
 
-      
+     
     
   )
 }

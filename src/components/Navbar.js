@@ -1,5 +1,6 @@
 import {  useContext, useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import {Link} from  'react-scroll'
 import Authnav from "./Authnetication"
 
 
@@ -51,9 +52,9 @@ const Navbar = () => {
 <p className=' font-Inter text-2xl'>Ragat Nepal</p>
 <div className='flex flex-row  items-centerfloat-end gap-[4rem] font-fontRoboto'>
  
-<Link to='/'  className=' font-fontRoboto list-none  flex items-center text-xl  no-underline text-white  active:underline'  >Home</Link>
- <Link to = '/login'   className='flex items-center no-underline text-white active:underline   text-xl '> Log in /Sign up</Link>
-
+<NavLink to='/'  className=' font-fontRoboto list-none  flex items-center text-xl  no-underline text-white  active:underline'  >Home</NavLink>
+ <NavLink to = '/login'   className='flex items-center no-underline text-white active:underline   text-xl '> Log in /Sign up</NavLink>
+<Link to='/about' smooth={true} duration={1000}>About</Link>
 
 <p className=" text-xl">Contact</p>
 
