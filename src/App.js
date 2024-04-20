@@ -8,6 +8,7 @@ import Signup from './Pages/Signup'
 import  { Contextauth} from './components/Authnetication';
 import Navbar from './components/Navbar'
 import About from './components/About'
+import { Link } from 'react-scroll'
 const App = () => {
   return (
     
@@ -17,19 +18,24 @@ const App = () => {
          <Navbar/>
          
         <Routes>
-           <Route path='/' element ={ <Home/>}/> 
+        
+         <Route path='/' element ={ <Home/>}/>
            {/* <Route path='/navbar' element={<Navbar/>}></Route> */}
          
           <Route path='/login' element={ <Login/>}> </Route>
           <Route path='/signup' element={<Signup/>}></Route>
           
-          <Route path='/usersection'element={<Usersection/>}>
-          </Route>
+          <Route path='/usersection'element={<Usersection/>}></Route>
+            <Route path ='/about' element={<About/>}></Route>
+          
 
          
         </Routes>
+        
+  <About/>
+
         </BrowserRouter>
-        <About/>
+      
         </Contextauth>
 
      

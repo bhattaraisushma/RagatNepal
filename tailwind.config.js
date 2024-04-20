@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     backgroundImage:{
     
-      "hero":"url(/public/homebg.jpg)"
+      "hero":"url(/public/homebg.jpg)",
+      "bgred":"url(/public/red-bg.jpg)"
+
     },
     backgroundColor:{
       "bgcolor":["EB7979"]
