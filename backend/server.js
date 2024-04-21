@@ -25,7 +25,7 @@ app.post('/login' , (req,res)=>{
 app.post('/signup',async(req,res)=>{
    const {Name,Password}=req.body
    try{
-    const user= await Loginmodel.findOne({Name})
+    const user = await Loginmodel.findOne({Name})
     if(!user)
     {
         console.log("error name")
@@ -49,4 +49,19 @@ catch(error)
     return res.json({"message":"Error finding username and password"})
 }
   
+})
+
+app.post('/bloodfetch', async(req,res)=>{
+    const {blood}=req.body
+   
+    try{
+        console.log(blood)
+   const blooddata=await Loginmodel.find({BloodG: blood})
+    console.log("from server",blooddata)
+    return res.send(blooddata)
+   
+}catch(error)
+{
+    console.log("blood ",error)
+}
 })
