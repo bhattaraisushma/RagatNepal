@@ -3,11 +3,12 @@ import { home } from '../data'
 import Button from './Button'
 import Navbar from './Navbar'
 import About from './About'
-
+import Footer from './Footer'
 
 const Home = () => {
 
-  return (
+  return (<>
+ 
     <div className="  h-[70vh] bg-cover    " id="/">
    
       <div className="  bg-[#810000]   h-full  ">
@@ -22,6 +23,9 @@ const Home = () => {
       </div>
   
      </div>
+     <About/>
+    
+     </>
   )
 }
 export default Home

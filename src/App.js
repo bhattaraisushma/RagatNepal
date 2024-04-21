@@ -9,6 +9,7 @@ import  { Contextauth} from './components/Authnetication';
 import Navbar from './components/Navbar'
 import About from './components/About'
 import { Link } from 'react-scroll'
+import Footer from './components/Footer'
 const App = () => {
   return (
     
@@ -32,8 +33,8 @@ const App = () => {
          
         </Routes>
         
-  <About/>
-
+  
+        <Footer/>
         </BrowserRouter>
       
         </Contextauth>

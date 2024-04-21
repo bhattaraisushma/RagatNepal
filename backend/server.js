@@ -20,7 +20,7 @@ app.listen(port,()=>{
 app.post('/login' , (req,res)=>{
    
     loginentry(req.body)
-   return req.body
+   return res.status(200).send("added")
 })
 app.post('/signup',async(req,res)=>{
    const {Name,Password}=req.body

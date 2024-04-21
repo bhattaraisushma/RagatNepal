@@ -6,10 +6,18 @@ import Authnav from '../components/Authnetication'
 const Signup = () => {
   const navigate=useNavigate()
 
-  const[psw,setPsw]=useState()
+  const[psw,setPsw]=useState(null)
+  // const[cname,setCname]=useState(null)
+  // const[cpsw,setCpsw]=useContext
   const {name, setName, login, setLogin }=useContext(Authnav)
 
   const signincheck= async()=>{
+if(name===null || psw === null )
+{
+  alert("fill")
+}
+else{
+
 
    try{
     console.log(" from signin clicked" ,name)
@@ -48,6 +56,7 @@ catch(error)
 
 
   }
+}
   const checklog=()=>{
     setLogin(true)
  
@@ -57,10 +66,10 @@ catch(error)
    
     <div className='flex flex-col justify-center gap-8 h-fit '> 
     <label>Welcome back</label>
-     <label className='inline-block flex-col w-full' >Name<input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='h-8 w-full rounded-md' required></input> </label>
-     <label className='inline-block flex-col w-full' >Password <input  type="password"className='h-8 w-full rounded-md' value={psw} onChange={(e)=>setPsw(e.target.value)} required ></input> </label>
+     <label className='inline-block flex-col w-full' >Name<input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' required></input> </label>
+     <label className='inline-block flex-col w-full' >Password <input  type="password"className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' value={psw} onChange={(e)=>setPsw(e.target.value)} required ></input> </label>
      <p className='  hover:cursor-pointer flex justify-center' onClick={()=>checklog()} >Login in?</p>
-     <button className='w-full h-12 rounded-lg bg-[red] border-0  text-white text-xl ml-2 mr-2' onClick={()=>signincheck()}>Submit</button>
+     <button className='w-full h-12 rounded-lg bg-[red]    border-0  text-white text-xl ml-2 mr-2' onClick={()=>signincheck()}>Submit</button>
   
     </div>
   
