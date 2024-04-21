@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import Authnav from '../components/Authnetication'
-
+import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import {useNavigate} from 'react-router-dom'
@@ -9,6 +9,9 @@ const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
   const[location,setLocation]=useState()
   const[profile,setProfile]=useState()
+  const [bloodcheck,setBloodcheck]=useState([
+   { "Name":"x"}
+  ])
   const navigate=useNavigate()
   const option=[
 "    Logout"
@@ -21,16 +24,38 @@ const Usersection = () => {
       const {authentication,setAuthentication,name, setName } = useContext(Authnav)
 
       useEffect(()=>{
-
-            
-            setAuthentication(true)
+   setAuthentication(true)
               console.log("hello user "+ name + authentication)
       })
       
 const logout=()=>{
       navigate('/')
      }
+     
+        const fetchdata= async()=>{
+          console.log("fetcing data")
+          
+          console.log("blood group",bloodgroup)
+          try{
+            const bloodcheck = await axios.post("http://localhost:3001/bloodfetch",{
+           
+              blood:bloodgroup
+            
+           
+           }
+          )
+          console.log( "result" )
+          console.log(bloodcheck)
+          setBloodcheck(bloodcheck)
+          }
       
+
+      catch(error)
+          {
+            console.log("blood fetch error",error)
+          }
+        }
+    
      
 
   return (
@@ -49,7 +74,7 @@ const logout=()=>{
                   className="h-[4rem] w-[4rem] rounded-full"  ></img>
                   <Dropdown
                   
-                  options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout(e)}></Dropdown>
+                  options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout()}></Dropdown>
               </div>
               {/* <p className='text-2xl'>Your profile</p> */}
             </p>
@@ -59,43 +84,32 @@ const logout=()=>{
             <div className=' grid grid-cols-2 '> 
          <Dropdown
          
-         options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup} onChange={(e)=>setBloodgroup(e) } className='w-[12rem] '> </Dropdown>
+         options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup}
+          onChange={(bloodgroup)=> {setBloodgroup(bloodgroup.value); 
+          fetchdata();
+          }  }
+          className='w-[12rem]  '> </Dropdown>
         
 
 <input type='text' placeholder='Search location' value={location} onChange={(e)=>setLocation(e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
 </div>
           </div>
-          <div className=" h-fit  grid grid-cols-3  m-4">
-            <div className=" h-fit w-[20rem] rounded-lg text-xl m-2 p-2  bg-[red] text-white ">
-              <p>Sushma Bhattarai</p>
-              <p>B +</p>
-              <p>Butwal</p>
-              <p>85533666</p>
-            </div>
-            <div className=" h-fit w-[20rem] rounded-lg text-xl m-2 p-2  bg-[red] text-white ">
-              <p>Sushma Bhattarai</p>
-              <p>B +</p>
-              <p>Butwal</p>
-              <p>85533666</p>
-            </div>
-            <div className=" h-fit w-[20rem] rounded-lg text-xl m-2 p-2  bg-[red] text-white ">
-              <p>Sushma Bhattarai</p>
-              <p>B +</p>
-              <p>Butwal</p>
-              <p>85533666</p>
-            </div>
-            <div className=" h-fit w-[20rem] rounded-lg text-xl m-2 p-2  bg-[red] text-white ">
-              <p>Sushma Bhattarai</p>
-              <p>B +</p>
-              <p>Butwal</p>
-              <p>85533666</p>
-            </div>
-            <div className=" h-fit w-[20rem] rounded-lg text-xl m-2 p-2  bg-[red] text-white ">
-              <p>Sushma Bhattarai</p>
-              <p>B +</p>
-              <p>Butwal</p>
-              <p>85533666</p>
-            </div>
+          <div className="h-fit grid grid-cols-3 m-4 font-roberto">
+  {bloodcheck.data.length > 0 ? (
+    bloodcheck.data.map((y, index) => (
+      
+      <div key={index} className="h-fit w-[20rem] rounded-lg text-xl mr-2 p-2 font-roberto bg-[red] text-white">
+        <p>{y.Name}</p>
+        <p>Address:{y.Address}</p>
+        <p>Contact : {y.Contact}</p>
+        <p>{y.BloodG}</p>
+      </div>
+    ))
+  ) : (
+    <p>No data available</p>
+  )}
+
+            
           </div>
         </div>
       </div>
