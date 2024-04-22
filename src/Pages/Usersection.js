@@ -107,8 +107,8 @@ setSearch(true)
     search ? (bloodcheck?.data?.length > 0 ? (
       bloodcheck.data.map((y, index) => (
         
-        <div key={index} className="h-fit w-[20rem] rounded-lg text-xl mr-2  mb-4 p-2 font-roberto  text-white hover:border-white border-dashed border-red-500">
-          <p>{y.Name}</p>
+        <div key={index} className="h-fit w-[15rem] rounded-lg text-xl mr-2 p-2 mb-4 font-roberto hover:border-white   border-solid border-2 border-red-500 ">
+        <p>{y.Name}</p>
           <p>Address:{y.Address}</p>
           <p>Contact : {y.Contact}</p>
           <p>{y.BloodG}</p>
