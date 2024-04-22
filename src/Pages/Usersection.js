@@ -5,13 +5,16 @@ import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import {useNavigate} from 'react-router-dom'
+import { displaydata } from '../data'
 const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
   const[location,setLocation]=useState()
   const[profile,setProfile]=useState()
-  const [bloodcheck,setBloodcheck]=useState([
-   { "Name":"x"}
-  ])
+  const [bloodcheck,setBloodcheck]=useState([{
+  
+  } ])
+  const [search,setSearch]=useState(false)
+  
   const navigate=useNavigate()
   const option=[
 "    Logout"
@@ -32,20 +35,19 @@ const logout=()=>{
       navigate('/')
      }
      
-        const fetchdata= async()=>{
-          console.log("fetcing data")
-          
-          console.log("blood group",bloodgroup)
+          const fetchdata= async(data)=>{
+setSearch(true)
           try{
             const bloodcheck = await axios.post("http://localhost:3001/bloodfetch",{
            
-              blood:bloodgroup
-            
-           
+              blood:data
+          
            }
           )
+          setBloodgroup(data)
+
           console.log( "result" )
-          console.log(bloodcheck)
+          console.log(bloodcheck)   
           setBloodcheck(bloodcheck)
           }
       
@@ -55,16 +57,17 @@ const logout=()=>{
             console.log("blood fetch error",error)
           }
         }
+   
     
      
 
   return (
     <>
-      <div className=" h-screen w-full text-[#e60700]  pt-[2rem]  font-fontRoboto bg-[#ebe5e5] flex overflow-x-hidden ">
+      <div className=" h-screen w-full   font-fontRoboto  text-black bg-[#f2f4f7] flex overflow-x-hidden ">
         <Sidebar />
 
-        <div className="grid grid-cols-1   h-fit ">
-          <div className="h-[8rem]   flex justify-between items-center  w-full  bg-[white]">
+        <div className="grid grid-cols-1   h-fit font-roberto ">
+          <div className="h-[6rem] px-2 flex justify-between items-center  bg-[white] rounded-lg ">
             <p className=" text-2xl">Hello ,{name}</p>
 
             <p>
@@ -73,41 +76,61 @@ const logout=()=>{
                   src={'homebg.jpg'}
                   className="h-[4rem] w-[4rem] rounded-full"  ></img>
                   <Dropdown
-                  
-                  options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout()}></Dropdown>
+                   options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout()}></Dropdown>
               </div>
               {/* <p className='text-2xl'>Your profile</p> */}
             </p>
           </div>
-          <div className="  h-[6rem] w-screen ml-4  text-2xl grid grid-cols-1 my-4 bg-[white] items-center   p-2">
-            <p>Find Donors</p>
+          <p className='mt-[4rem] text-2xl ml-[4rem] text-[#810000]'>Find Donors</p>
+          <div className="  h-[6rem] w-screen ml-[2rem] text-2xl bg-[white] grid grid-flow-col my-4 rounded-lg  items-center   pl-2">
+            
             <div className=' grid grid-cols-2 '> 
          <Dropdown
          
          options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup}
-          onChange={(bloodgroup)=> {setBloodgroup(bloodgroup.value); 
-          fetchdata();
+          onChange={ async(bloodgroup)=> {
+        //     setBloodgroup(bloodgroup.label); 
+         await fetchdata(bloodgroup.label);
+
+        console.log(bloodgroup.value)
           }  }
-          className='w-[12rem]  '> </Dropdown>
+          className='w-[12rem] bg-[#810000] rounded-lg  '> 
+          </Dropdown>
         
 
 <input type='text' placeholder='Search location' value={location} onChange={(e)=>setLocation(e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
 </div>
           </div>
-          <div className="h-fit grid grid-cols-3 m-4 font-roberto">
-  {bloodcheck.data.length > 0 ? (
-    bloodcheck.data.map((y, index) => (
-      
-      <div key={index} className="h-fit w-[20rem] rounded-lg text-xl mr-2 p-2 font-roberto bg-[red] text-white">
-        <p>{y.Name}</p>
-        <p>Address:{y.Address}</p>
-        <p>Contact : {y.Contact}</p>
-        <p>{y.BloodG}</p>
-      </div>
+          <div className="h-fit grid grid-cols-4 m-4  text-black font-roberto">
+            
+  {
+    search ? (bloodcheck?.data?.length > 0 ? (
+      bloodcheck.data.map((y, index) => (
+        
+        <div key={index} className="h-fit w-[20rem] rounded-lg text-xl mr-2  mb-4 p-2 font-roberto  text-white hover:border-white border-dashed border-red-500">
+          <p>{y.Name}</p>
+          <p>Address:{y.Address}</p>
+          <p>Contact : {y.Contact}</p>
+          <p>{y.BloodG}</p>
+        </div>
+      ))
+    ) : (
+      <p>No User with {bloodgroup} bloodgroup available</p>
     ))
-  ) : (
-    <p>No data available</p>
-  )}
+    :(
+displaydata.map((s,index)=>{
+  return(
+  <div key={index} className="h-fit w-[15rem] rounded-lg text-xl mr-2 p-2 mb-4 font-roberto hover:border-white   border-solid border-2 border-red-500 ">
+  <p>{s.Name}</p>
+  <p>Address:{s.Address}</p>
+  <p>Contact : {s.Contact}</p>
+  <p>BloodGroup:{s.BloodGroup}</p>
+</div>
+)
+})
+
+    )
+  }
 
             
           </div>

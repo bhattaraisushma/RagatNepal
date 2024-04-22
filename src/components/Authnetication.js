@@ -10,7 +10,7 @@ export const Contextauth = ({ children }) => {
 
   return ( 
   <Authnav.Provider value={{ authentication, setAuthentication ,name,setName,login,setLogin}}>
-      {children}
+{children}
     </Authnav.Provider>
   );
 };

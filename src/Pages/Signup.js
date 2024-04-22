@@ -64,8 +64,8 @@ catch(error)
   return (
     
    
-    <div className='flex flex-col justify-center gap-8 h-fit '> 
-    <label>Welcome back</label>
+    <div className='flex flex-col justify-center gap-8 h-fit  font-roberto'> 
+    <label className='text-[#ff0505] flex text-3xl justify-center'>Welcome back</label>
      <label className='inline-block flex-col w-full' >Name<input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' required></input> </label>
      <label className='inline-block flex-col w-full' >Password <input  type="password"className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' value={psw} onChange={(e)=>setPsw(e.target.value)} required ></input> </label>
      <p className='  hover:cursor-pointer flex justify-center' onClick={()=>checklog()} >Login in?</p>

@@ -1,7 +1,11 @@
 import {  useContext, useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import {  Link} from  'react-scroll'
+import { CiFacebook } from "react-icons/ci";
+import { FaInstagram } from "react-icons/fa";
 
+
+import { CiLinkedin } from "react-icons/ci";
 import Authnav from "./Authnetication"
 
 
@@ -49,9 +53,11 @@ const Navbar = () => {
   return (
     <>
 {!authentication && (
-<div className={ ` ${ scroll ? 'sticky top-0  bg-[#87070e] text-white  ': " "}  sticky top-0 flex flex-row  bg-[#810000]   bg-opacity-[95%] h-[4rem]  font-fontRoboto justify-between items-center text-2xl  text-white    px-[4rem]  ` }>
-<p className=' font-Inter text-2xl flex flex-row text-[2rem]'><p className="text-[#ff0505]  mr-4">Ragat</p> Nepal</p>
-<div className='flex flex-row  items-centerfloat-end gap-[4rem] font-fontRoboto'>
+<div className={ ` ${ scroll ? 'sticky top-0  bg-[#87070e] text-white  ': " "}  sticky top-0 flex flex-row  bg-[#810000]   bg-opacity-[95%] h-[4rem]  font-fontRoboto  items-center  text-2xl  text-white   px-[4rem]  ` }>
+<div className=' font-Inter text-2xl flex flex-row  text-[2rem] '>
+  <p className="text-[#ff0505]  mr-4">Ragat</p> Nepal
+  </div>
+<div className='flex flex-row w-full items-center gap-[4rem] font-fontRoboto justify-center '>
  
 
 
@@ -65,6 +71,9 @@ const Navbar = () => {
 
 
 </div>
+<div><CiFacebook/></div>
+<div><FaInstagram /></div>
+<div><CiLinkedin /></div>
 </div>
  )} 
 </>
