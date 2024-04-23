@@ -52,15 +52,38 @@ catch(error)
 })
 
 app.post('/bloodfetch', async(req,res)=>{
-    const {blood}=req.body
+    const {blood,  loc}=req.body
    
     try{
         console.log(blood)
-   const blooddata=await Loginmodel.find({BloodG: blood})
-    console.log("from server",blooddata)
-    return res.send(blooddata)
+  
+ 
+  
+
+    if( blood && loc)
+    {
+        const blooddata=await Loginmodel.find({BloodG: blood, Address:loc})
+        console.log("from server both match",blooddata)
+        return res.send(blooddata)
+    }
+     else if(blood)
+    {
+        
+        const blooddata=await Loginmodel.find({BloodG: blood})
+        console.log("from server blood match",blooddata)
+        return res.send(blooddata)
+    }
+    else(loc)
+  
+    const blooddata=await Loginmodel.find({Address:loc})
+       
+    console.log("from server location match",blooddata)
+        return res.send(blooddata)
+        
    
-}catch(error)
+}
+
+catch(error)
 {
     console.log("blood ",error)
 }
