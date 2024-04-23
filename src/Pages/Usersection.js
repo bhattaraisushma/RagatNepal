@@ -35,20 +35,25 @@ const logout=()=>{
       navigate('/')
      }
      
-          const fetchdata= async(data)=>{
+          const fetchdata= async(bloodgroup,location)=>{
+            console.log("i am bloodgroup"+  bloodgroup)
+            console.log("i am location"+  location)
 setSearch(true)
+
           try{
             const bloodcheck = await axios.post("http://localhost:3001/bloodfetch",{
            
-              blood:data
+              blood:bloodgroup,
+              loc:location
           
            }
           )
-          setBloodgroup(data)
+          setBloodgroup(bloodgroup)
 
           console.log( "result" )
           console.log(bloodcheck)   
           setBloodcheck(bloodcheck)
+          setLocation(location);
           }
       
 
@@ -90,7 +95,7 @@ setSearch(true)
          options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup}
           onChange={ async(bloodgroup)=> {
         //     setBloodgroup(bloodgroup.label); 
-         await fetchdata(bloodgroup.label);
+         await fetchdata(bloodgroup.label,location);
 
         console.log(bloodgroup.value)
           }  }
@@ -98,7 +103,7 @@ setSearch(true)
           </Dropdown>
         
 
-<input type='text' placeholder='Search location' value={location} onChange={(e)=>setLocation(e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
+<input type='text' placeholder='Search location' value={location} onChange={async(e)=> await fetchdata(bloodgroup,e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
 </div>
           </div>
           <div className="h-fit grid grid-cols-4 m-4  text-black font-roberto">
