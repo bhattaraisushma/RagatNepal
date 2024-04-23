@@ -5,6 +5,7 @@ import cors from 'cors'
 import { signinentry } from './controller/Signin.js';
 import Loginmodel from './database/Model/Loginmodel.js';
 
+
 const app=express();
 const port=3001
 app.use(cors())
