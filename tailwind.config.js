@@ -8,9 +8,9 @@ module.exports = {
       "bgred":"url(/public/red-bg.jpg)"
 
     },
-    backgroundColor:{
-      "bgcolor":["EB7979"]
-    },
+    // backgroundColor:{
+    //   "bgcolor":["EB7979"]
+    // },
     fontFamily:{
       "fontRoboto":['Roboto'],
       "popins":['Poppins'],

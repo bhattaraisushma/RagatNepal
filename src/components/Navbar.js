@@ -31,7 +31,7 @@ const Navbar = () => {
   useEffect(()=>{
    
     const change=()=>{
-      if(window.scrollY>=40)
+      if(window.scrollY>=470)
       {
         setScroll(true);
 
@@ -53,9 +53,9 @@ const Navbar = () => {
   return (
     <>
 {!authentication && (
-<div className={ ` ${ scroll ? 'sticky top-0  bg-[#87070e] text-white  ': " "}  sticky top-0 flex flex-row  bg-[#810000]   bg-opacity-[95%] h-[4rem]  font-fontRoboto  items-center  text-2xl  text-white   px-[4rem]  ` }>
-<div className=' font-Inter text-2xl flex flex-row  text-[2rem] '>
-  <p className="text-[#ff0505]  mr-4">Ragat</p> Nepal
+<div className={ ` ${ scroll ? 'sticky top-0  bg-[#0E273F]  text-[B4BDCB]  ': " "}  sticky top-0 flex flex-row  bg-[#08111C]     h-[4rem]  font-fontRoboto  items-center  text-2xl  text-[#F0FAFF]  px-[4rem]  ` }>
+<div className=' font-Inter text-2xl flex flex-row  text-[2rem]  '>
+  <p className="text-[#BA882C]  mr-4">Ragat</p> Nepal
   </div>
 <div className='flex flex-row w-full items-center gap-[4rem] font-fontRoboto justify-center '>
  
