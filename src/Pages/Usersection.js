@@ -6,6 +6,7 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import {useNavigate} from 'react-router-dom'
 import { displaydata } from '../data'
+import { IoSearch } from "react-icons/io5";
 const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
   const[location,setLocation]=useState()
@@ -102,8 +103,10 @@ setSearch(true)
           className='w-[12rem] bg-[#810000] rounded-lg  '> 
           </Dropdown>
         
-
-<input type='text' placeholder='Search location' value={location} onChange={async(e)=> await fetchdata(bloodgroup,e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
+<div className=' flex flex-row'>
+<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
+<button className='w-[5rem] h-7 rounded-xl flex justify-center items-center mt-2 ' onClick={async()=>await fetchdata(bloodgroup,location)}><IoSearch /></button>
+</div>
 </div>
           </div>
           <div className="h-fit grid grid-cols-4 m-4  text-black font-roberto">
@@ -120,7 +123,7 @@ setSearch(true)
         </div>
       ))
     ) : (
-      <p>No User with {bloodgroup} bloodgroup available</p>
+      <p>No User  available</p>
     ))
     :(
 displaydata.map((s,index)=>{
