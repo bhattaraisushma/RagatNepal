@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Sidebar from '../components/Sidebar'
-import Authnav from '../components/Authnetication'
+import Sidebar from './Sidebar'
+import Authnav from './Authnetication'
 import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
@@ -25,9 +25,12 @@ const Usersection = () => {
   "A-",
   "B+"
   ]
-      const {authentication,setAuthentication,name, setName } = useContext(Authnav)
+      const {authentication,setAuthentication,name, setName,login,loggedin,setLoggedin } = useContext(Authnav)
 
       useEffect(()=>{
+        if(!loggedin)
+         { navigate('/login')}
+        
    setAuthentication(true)
               console.log("hello user "+ name + authentication)
       })

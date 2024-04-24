@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import Home from './components/Home'
 import Login from './Pages/Login'
 import  {BrowserRouter,Routes,Route, } from 'react-router-dom'
-import Usersection from './Pages/Usersection'
+import Usersection from './components/Usersection'
 import Signup from './Pages/Signup'
 
 import  { Contextauth} from './components/Authnetication';
 import Navbar from './components/Navbar'
 import About from './components/About'
-import { Link } from 'react-scroll'
+
 import Footer from './components/Footer'
+
 const App = () => {
+  
   return (
     
       <Contextauth>
@@ -25,8 +27,10 @@ const App = () => {
          
           <Route path='/login' element={ <Login/>}> </Route>
           <Route path='/signup' element={<Signup/>}></Route>
+         
+          (<Route path='/usersection'element={<Usersection/>}></Route>)
+        
           
-          <Route path='/usersection'element={<Usersection/>}></Route>
             <Route path ='/about' element={<About/>}></Route>
           
 

@@ -7,7 +7,7 @@ import Authnav from '../components/Authnetication'
 import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const navigate=useNavigate()
-  const {name,setName, login,setLogin}= useContext(Authnav)
+  const {name,setName, login,setLogin,loggedin,setLoggedin}= useContext(Authnav)
 
  
   // const[name,setName]=useState(null)
@@ -54,6 +54,7 @@ const Login = () => {
        if (data.status === 200)
        {
         console.log("adeed to db")
+        setLoggedin(true)
         navigate('/usersection')
        }
     
