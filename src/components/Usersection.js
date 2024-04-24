@@ -10,7 +10,7 @@ import { IoSearch } from "react-icons/io5";
 const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
   const[location,setLocation]=useState()
-  const[profile,setProfile]=useState()
+
   const [bloodcheck,setBloodcheck]=useState([{
   
   } ])

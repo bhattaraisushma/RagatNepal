@@ -15,6 +15,7 @@ const Signup = () => {
   const [processing, setProcessing] = useState(false)
 
   const signincheck = async () => {
+    
     if (name === "" || psw === "") {
       alert('Empty fields ')
     } else {

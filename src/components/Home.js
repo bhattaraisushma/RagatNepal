@@ -33,7 +33,7 @@ width: "400px",
         </div>
         </div>
         <div className="float-end flex items-center">
-        <Lottie animationData={Bloodanimation} loop={true}  style={style}>hello</Lottie>
+        <Lottie animationData={Bloodanimation} loop={true}  style={style}></Lottie>
         </div>
       </div>
   
