@@ -5,7 +5,7 @@ import cors from 'cors'
 import { signinentry } from './controller/Signin.js';
 import Loginmodel from './database/Model/Loginmodel.js';
 
-
+import bcrypt from 'bcrypt';
 const app=express();
 const port=3001
 app.use(cors())
@@ -34,7 +34,8 @@ app.post('/signup',async(req,res)=>{
         console.log("error name")
         return res.status(404)
     }
-    const psw = user.Password === Password
+    // const psw = user.Password === Password
+    const psw  = bcrypt.compare(Password, user.Password)
     if(!psw)
     {
         console.log("error psw")
