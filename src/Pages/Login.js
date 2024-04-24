@@ -16,7 +16,7 @@ const Login = () => {
   const[confirmpsw,setConfirmpsw]=useState(null)
   const[blood,setBlood]=useState(null)
   const[contact,setContact]=useState(null)
-   
+   const[nameerror,setNameerror]=useState(false)
  
     const check=()=>{
 
@@ -35,9 +35,8 @@ const Login = () => {
       {
         if(password===confirmpsw)
       {
-      //  setLogin(false)
       try{
-        const data= await axios.post("http://localhost:3001/login",{
+        const data= await axios.post("https://ragatnepal-1.onrender.com/login",{
             Name:name,
             Address:address,
             Password:password,
@@ -73,16 +72,16 @@ const Login = () => {
       }
     
   return (
-    <div className='h-screen flex justify-center  bg-[#f2f4f7] ' >
+    <div className='h-screen flex justify-center     ' >
     
-    <div className=' inline-block bg-[white]     w-[25rem]  h-fit rounded-md  justify-center items-center mt-[5rem] gap-[4rem] p-6  '>
+    <div className=' inline-block bg-[white]     w-[25rem]  h-fit rounded-lg shadow-2xl  justify-center items-center mt-[5rem] gap-[4rem] p-6  '>
    
      { login ? (
         <>
     
-        <label className='flex flex-col   w-full ' >
+        <label className={`flex flex-col   w-full ${ nameerror?'border-red-500':''}`} >
          <p> Full Name </p>  
-          <input type=" text" className='h-8 rounded-md border-2 border-[#f2f4f7]' required value={name} onChange={(e)=>{setName(e.target.value)}} ></input>
+          <input type=" text" className='h-8 rounded-md border-2 border-[#f2f4f7]' required value={name} onChange={(e)=>{setName(e.target.value); setNameerror(!e.target.value);}} ></input>
          </label>
    
          <label className='inline-block flex-col w-full' >
@@ -99,7 +98,7 @@ const Login = () => {
    <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Sign in?</p>
  
    
-   <button className='w-full h-12 rounded-lg bg-[red]    border-0  text-white text-xl ml-2 mr-2 ' onClick={()=>formhandler()}>Submit</button>
+   <button className='w-full h-12 rounded-lg bg-[#BA882C]    border-0  text-white text-xl ml-2 mr-2 ' onClick={()=>formhandler()}>Submit</button>
    
    </> 
    )

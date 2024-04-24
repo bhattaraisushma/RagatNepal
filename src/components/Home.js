@@ -20,8 +20,8 @@ const Home = () => {
           <div className="font-semibold text-3xl mb-5">{home.sub}</div>
           <div className="text-xl mb-[2rem] ">{home.content}</div>
           <div className=' flex flex-row gap-[3rem]'>
-        <Button content={ {title:"Signup"}}  />
-        <Button content={{title:"Login",bg:"#0D273F"}} />
+        {/* <Button content={ {title:"Signup"}}  /> */}
+        {/* <Button content={{title:"Login",bg:"#0D273F"}} /> */}
         </div>
         </div>
 

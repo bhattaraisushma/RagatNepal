@@ -42,7 +42,7 @@ const logout=()=>{
 setSearch(true)
 
           try{
-            const bloodcheck = await axios.post("http://localhost:3001/bloodfetch",{
+            const bloodcheck = await axios.post("https://ragatnepal-1.onrender.com/bloodfetch",{
            
               blood:bloodgroup,
               loc:location
@@ -104,7 +104,7 @@ setSearch(true)
           </Dropdown>
         
 <div className=' flex flex-row'>
-<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-red-600 rounded-xl justify-center w-[24rem]' ></input>
+<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center w-[24rem]' ></input>
 <button className='w-[5rem] h-7 rounded-xl flex justify-center items-center mt-2 ' onClick={async()=>await fetchdata(bloodgroup,location)}><IoSearch /></button>
 </div>
 </div>
