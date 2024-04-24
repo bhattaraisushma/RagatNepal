@@ -17,6 +17,9 @@ const Login = () => {
   const[blood,setBlood]=useState(null)
   const[contact,setContact]=useState(null)
    const[nameerror,setNameerror]=useState(false)
+   
+   
+   const [processing, setProcessing] = useState(false); 
  
     const check=()=>{
 
@@ -25,7 +28,7 @@ const Login = () => {
     }
    
     const formhandler=async()=>{
-      
+      setProcessing(true)
       console.log("from login")
       if(name===null || address=== null || password === null)
       {
@@ -61,15 +64,19 @@ const Login = () => {
               {
                 console.log("error submitting", error)
               }
+              finally{
+                setProcessing(false)
+               } 
             }
             else{
               console.log("Password dont match")
             }
           }
-             
-      
+          
+        
            
       }
+      
     
   return (
     <div className='h-screen flex justify-center     ' >
@@ -83,7 +90,7 @@ const Login = () => {
          <p> Full Name </p>  
           <input type=" text" className='h-8 rounded-md border-2 border-[#f2f4f7]' required value={name} onChange={(e)=>{setName(e.target.value); setNameerror(!e.target.value);}} ></input>
          </label>
-   
+        
          <label className='inline-block flex-col w-full' >
           <p>Contact Number</p> 
           <input type=" number" value={contact}  onChange={(e)=>{setContact(e.target.value)}} className='h-8 w-full rounded-md  border-2 border-[#f2f4f7]  'required ></input></label>
@@ -98,20 +105,29 @@ const Login = () => {
    <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Login?</p>
  
    
-   <button className='w-full h-12 rounded-lg bg-[#BA882C]    border-0  text-white text-xl ml-2 mr-2 ' onClick={()=>formhandler()}>Submit</button>
-   
-   </> 
-   )
-   : 
-   (
-   <>
+   <button className='w-full h-12 rounded-lg bg-[#BA882C] border-0 text-white text-xl ml-2 mr-2 flex justify-center items-center' onClick={formhandler}>
+              { processing ? ( 
+                <svg className="animate-spin h-7 w-7 mr-3 bg-white" viewBox="0 0 24 24">
+                 <p>Submit</p>
+                </svg>
+              ) : (
+                <>
+              <p>Submit</p>
+              </>
+              )
+              }
+              </button>
+              </>
+              ) :
+  ( <>
    <Signup/>
   
 
     </>
-   )
+    )
+   
   
-   }
+     }
       
      
 
@@ -120,5 +136,7 @@ const Login = () => {
     </div>
   )
 }
+
+ 
 
 export default Login

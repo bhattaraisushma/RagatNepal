@@ -10,7 +10,7 @@ const Signup = () => {
   // const[cname,setCname]=useState(null)
   // const[cpsw,setCpsw]=useContext
   const {name, setName, login, setLogin }=useContext(Authnav)
-
+  const [processing, setProcessing] = useState(false); 
   const signincheck= async()=>{
 if(name===null || psw === null )
 {
@@ -20,6 +20,7 @@ else{
 
 
    try{
+    setProcessing(true)
     console.log(" from signin clicked" ,name)
         const hit = await axios.post("https://ragatnepal-1.onrender.com/signup",{
        
@@ -53,6 +54,9 @@ catch(error)
 {
   console.error("Eroor",error)
 }
+finally{
+  setProcessing(false)
+}
 
 
   }
@@ -69,7 +73,20 @@ catch(error)
      <label className='inline-block flex-col w-full' >Name<input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' required></input> </label>
      <label className='inline-block flex-col w-full' >Password <input  type="password"className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' value={psw} onChange={(e)=>setPsw(e.target.value)} required ></input> </label>
      <p className='  hover:cursor-pointer flex justify-center' onClick={()=>checklog()} >Sign up?</p>
-     <button className='w-full h-12 rounded-lg  bg-[#BA882C]   border-0  text-white text-xl ml-2 mr-2' onClick={()=>signincheck()}>Submit</button>
+     <button className='w-full h-12 rounded-lg  bg-[#BA882C] flex justify-center items-center  border-0  text-white text-xl ml-2 mr-2' onClick={()=>signincheck()}>
+      
+     { processing ? ( 
+                <svg className="animate-spin h-7 w-7 mr-3 bg-white" viewBox="0 0 24 24">
+                 <p>Submit</p>
+                </svg>
+              ) : (
+                <>
+              <p>Submit</p>
+              </>
+              )
+              }
+      
+      </button>
   
     </div>
   
