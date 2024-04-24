@@ -68,7 +68,7 @@ catch(error)
     <label className='text-[#08111C] flex text-3xl justify-center'>Welcome back</label>
      <label className='inline-block flex-col w-full' >Name<input type="text" value={name} onChange={(e)=>setName(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' required></input> </label>
      <label className='inline-block flex-col w-full' >Password <input  type="password"className='h-8 w-full rounded-md border-2 border-[#f2f4f7] ' value={psw} onChange={(e)=>setPsw(e.target.value)} required ></input> </label>
-     <p className='  hover:cursor-pointer flex justify-center' onClick={()=>checklog()} >Login in?</p>
+     <p className='  hover:cursor-pointer flex justify-center' onClick={()=>checklog()} >Sign up?</p>
      <button className='w-full h-12 rounded-lg  bg-[#BA882C]   border-0  text-white text-xl ml-2 mr-2' onClick={()=>signincheck()}>Submit</button>
   
     </div>
