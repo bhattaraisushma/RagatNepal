@@ -82,7 +82,7 @@ setSearch(true)
             <p>
               <div className="  mr-[3rem] h-[4rem] w-[4rem] rounded-full bg-[#e60700] ">
                 <img
-                  src={'homebg.jpg'}
+                  src={'red-bg.jpg'}
                   className="h-[4rem] w-[4rem] rounded-full"  ></img>
                   <Dropdown
                    options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout()}></Dropdown>
