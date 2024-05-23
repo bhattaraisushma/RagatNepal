@@ -6,6 +6,7 @@ import About from './About'
 import Footer from './Footer'
 import Lottie from "lottie-react";
 
+
 import Bloodanimation from "../assets/Bloodanimation.json"
 const Home = () => {
 const style={
