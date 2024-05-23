@@ -22,7 +22,7 @@ width: "400px",
       <div className="  bg-[#08111C]   h-full flex md:flex-row flex-col justify-evenly  ">
       
          <div className="flex   flex-col   h-full justify-center  items-center  text-2xl font-roberto float-start   ">
-         <h1 className="scroll-m-20 text-6xl font-extrabold tracking-tight  mb-5 animate__animated  animate__bounceInDown ">
+         <h1 className="scroll-m-20 text-6xl font-extrabold tracking-tight  mb-5 animate__animated  animate__bounceInDown  flex justify-center">
         {home.title}
       </h1>
           <div className="font-semibold text-3xl mb-5 animate__animated  animate__bounceInLeft  ">{home.sub}</div>
