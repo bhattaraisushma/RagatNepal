@@ -99,7 +99,7 @@ const Login = () => {
           <label className='inline-block flex-col w-full' >
             <p>Address </p> <input type=" address"  className='h-8 w-full rounded-md border-2 border-[#f2f4f7] '  value={address} onChange={(e)=>{setAddress(e.target.value)}}  required></input></label>
   
-          <label className='inline-block flex-col w-full' ><p>Password  </p> <input type=" password" value={password} onChange={(e)=>setPassword(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7]   ' required></input></label>
+          <label className='inline-block flex-col w-full' ><p>Password  </p> <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7]   ' required></input></label>
           <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" className='h-8 w-full rounded-md border-2 border-[#f2f4f7]  ' vlaue={confirmpsw} onChange={(e)=>{setConfirmpsw(e.target.value)}} required></input></label>
           <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md border-3 border-[#f2f4f7] ' value={blood} onChange={(e)=>{setBlood(e.target.value)}}></input></label>
    

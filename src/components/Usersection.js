@@ -93,7 +93,7 @@ setSearch(true)
           <p className='mt-[4rem] text-2xl ml-[4rem] text-[#810000]'>Find Donors</p>
           <div className="  h-[6rem] w-screen ml-[2rem] text-2xl bg-[white] grid grid-flow-col my-4 rounded-lg  items-center   pl-2">
             
-            <div className=' grid grid-cols-2 '> 
+            <div className=' grid md:grid-cols-2 grid-cols-1 gap-4 '> 
          <Dropdown
          
          options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup}
@@ -106,13 +106,13 @@ setSearch(true)
           className='w-[12rem] bg-[#810000] rounded-lg  '> 
           </Dropdown>
         
-<div className=' flex flex-row'>
-<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center w-[24rem]' ></input>
+<div className=' flex flex-row '>
+<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center md:w-[24rem] w-fit right-0' ></input>
 <button className='w-[5rem] h-7 rounded-xl flex justify-center items-center mt-2 ' onClick={async()=>await fetchdata(bloodgroup,location)}><IoSearch /></button>
 </div>
 </div>
           </div>
-          <div className="h-fit grid grid-cols-4 m-4  text-black font-roberto">
+          <div className="h-fit grid md:grid-cols-4 grid-cols-1 m-4  text-black font-roberto">
             
   {
     search ? (bloodcheck?.data?.length > 0 ? (
