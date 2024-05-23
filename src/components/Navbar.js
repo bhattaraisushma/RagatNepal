@@ -60,13 +60,13 @@ const Navbar = () => {
 <div className='flex flex-row w-full items-center gap-[4rem] font-fontRoboto justify-center '>
  
 
-
+<Link to ='/' smooth={true} duration ={1000}>
 <NavLink to='/'  className=' font-fontRoboto list-none  flex items-center text-xl   text-white  '>  Home </NavLink>
-
+</Link>
  <NavLink to = "/login"  className='flex items-center no-underline text-white text-xl'> Log in /Sign up </NavLink>
 <Link to='/about' smooth={true} duration={1000} >About</Link>
 
-<p className=" text-xl">Contact</p>
+{/* <p className=" text-xl">Contact</p> */}
 
 
 

@@ -80,7 +80,7 @@ const Login = () => {
       
     
   return (
-    <div className='h-screen flex justify-center     ' >
+    <div className='md:h-screen h-screen flex justify-center  items-center    ' >
     
     <div className=' inline-block bg-[white]     w-[25rem]  h-fit rounded-lg shadow-2xl  justify-center items-center mt-[5rem] gap-[4rem] p-6  '>
    
