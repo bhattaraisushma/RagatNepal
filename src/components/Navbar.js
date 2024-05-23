@@ -66,7 +66,7 @@ const Navbar = () => {
 <Link to ='/' smooth={true} duration ={1000}>
 <NavLink to='/'  className=' font-fontRoboto list-none  flex items-center text-xl   text-white  '>  Home </NavLink>
 </Link>
- <NavLink to = "/login"  className='flex items-center no-underline text-white text-xl'> Log in /Sign up </NavLink>
+ <NavLink to = "/login"  className='flex items-center no-underline text-white text-xl'> Sign up </NavLink>
 <Link to='/about' smooth={true} duration={1000} >About</Link>
 
 {/* <p className=" text-xl">Contact</p> */}

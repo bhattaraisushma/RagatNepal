@@ -84,7 +84,7 @@ console.log(hit)
         className="  hover:cursor-pointer flex justify-center"
         onClick={() => checklog()}
       >
-        Sign up?
+        Don't have an account? Sign up now
       </p>
       <button
         className="w-full h-12 rounded-lg  bg-[#BA882C] flex justify-center items-center  border-0  text-white text-xl ml-2 mr-2"
