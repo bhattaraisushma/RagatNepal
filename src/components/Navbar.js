@@ -55,7 +55,7 @@ const Navbar = () => {
     
 {!authentication && (
 
-<div className={ ` ${ scroll ? 'sticky top-0  bg-[#0E273F]  text-[B4BDCB]  ': " "}  sticky top-0 flex md:flex-row flex-col bg-[#08111C]  md:h-[4rem] h-[6rem] font-fontRoboto  items-center  text-2xl md:pb-0 pb-[2rem]  text-[#F0FAFF]  px-[4rem] md:gap-0 gap-3 ` }>
+<div className={ ` ${ scroll ? 'sticky top-0  bg-[#0E273F]  text-[B4BDCB]  ': " "}  sticky top-0 flex md:flex-row flex-col bg-[#08111C]  md:h-[4rem] h-[6rem] font-fontRoboto  items-center  text-2xl md:pb-0 pb-[2rem]  text-[#F0FAFF]  px-[4rem] md:gap-0 gap-4 ` }>
 
 <div className=' font-Inter text-2xl flex flex-row  text-[2rem]  '>
   <p className="text-[#BA882C]  mr-4">Ragat</p> Nepal
