@@ -107,7 +107,7 @@ setSearch(true)
           </Dropdown>
         
 <div className=' flex flex-row '>
-<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center md:w-[24rem] w-fit right-0' ></input>
+<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center md:w-[24rem] w-[10rem] right-0' ></input>
 <button className='w-[5rem] h-7 rounded-xl flex justify-center items-center mt-2 ' onClick={async()=>await fetchdata(bloodgroup,location)}><IoSearch /></button>
 </div>
 </div>
