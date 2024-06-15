@@ -5,6 +5,7 @@ import Signup from './Signup'
 import axios from 'axios'
 import Authnav from '../components/Authnetication'
 import { useNavigate } from 'react-router-dom'
+import Selectblood from '../components/Selectblood'
 const Login = () => {
   const navigate=useNavigate()
   const {name,setName, login,setLogin,loggedin,setLoggedin}= useContext(Authnav)
@@ -101,10 +102,10 @@ const Login = () => {
   
           <label className='inline-block flex-col w-full' ><p>Password  </p> <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className='h-8 w-full rounded-md border-2 border-[#f2f4f7]   ' required></input></label>
           <label className='inline-block flex-col w-full' ><p>Confirm password </p> <input type=" password" className='h-8 w-full rounded-md border-2 border-[#f2f4f7]  ' vlaue={confirmpsw} onChange={(e)=>{setConfirmpsw(e.target.value)}} required></input></label>
-          <label className='inline-block flex-col w-full' ><p>Blood Group </p><input type=" drop down" required className='h-8 w-full rounded-md border-3 border-[#f2f4f7] ' value={blood} onChange={(e)=>{setBlood(e.target.value)}}></input></label>
+          <label className='inline-block flex-col w-full' >Blood Group<Selectblood/></label>
    
-   <p className=' underline hover:cursor-pointer flex justify-center' onClick={()=>check()} >Already have an account ?Login</p>
- 
+   <p className=' underline hover:cursor-pointer flex justify-center pt-5' onClick={()=>check()} >Already have an account ?Login</p>
+  
    
    <button className='w-full h-12 rounded-lg bg-[#BA882C] border-0 text-white text-xl ml-2 mr-2 flex justify-center items-center' onClick={formhandler}>
               { processing ? ( 

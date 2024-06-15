@@ -7,6 +7,16 @@ import 'react-dropdown/style.css'
 import {useNavigate} from 'react-router-dom'
 import { displaydata } from '../data'
 import { IoSearch } from "react-icons/io5";
+import Selectblood from './Selectblood'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card"
+
 const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
   const[location,setLocation]=useState()
@@ -21,9 +31,15 @@ const Usersection = () => {
 "    Logout"
   ]
   const bloodoption=[
+  "O+",
+  "O-",
+
     "A+",
   "A-",
-  "B+"
+  "B+",
+  "B-",
+  "AB+",
+  "AB-"
   ]
       const {authentication,setAuthentication,name, setName,login,loggedin,setLoggedin } = useContext(Authnav)
 
@@ -94,6 +110,8 @@ setSearch(true)
           <div className="  h-[6rem] w-screen ml-[2rem] text-2xl bg-[white] grid grid-flow-col my-4 rounded-lg  items-center   pl-2">
             
             <div className=' grid md:grid-cols-2 grid-cols-1 gap-4 '> 
+
+             
          <Dropdown
          
          options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup}
@@ -103,7 +121,7 @@ setSearch(true)
 
         console.log(bloodgroup.value)
           }  }
-          className='w-[12rem] bg-[#810000] rounded-lg  '> 
+          className='w-[12rem] h-fit bg-[#810000] rounded-lg  '> 
           </Dropdown>
         
 <div className=' flex flex-row '>
@@ -118,12 +136,30 @@ setSearch(true)
     search ? (bloodcheck?.data?.length > 0 ? (
       bloodcheck.data.map((y, index) => (
         
-        <div key={index} className="h-fit w-[15rem] rounded-lg text-xl mr-2 p-2 mb-4 font-roberto hover:border-white shadow-2xl  flex  flex-col justify-center items-center border-solid border-2 ">
-        <p>{y.Name}</p>
-          <p>Address:{y.Address}</p>
-          <p>Contact : {y.Contact}</p>
-          <p>{y.BloodG}</p>
-        </div>
+              <Card className='h-fit w-[16rem] hover:scale-105'>
+  <CardHeader>
+    {/* <CardTitle>Donor</CardTitle> */}
+    {/* <CardDescription>Card Description</CardDescription> */}
+  </CardHeader>
+  <CardContent>
+  <p>Name:{y.Name}</p>
+  </CardContent>
+  <CardContent>
+  <p>Address:{y.Address}</p>
+  </CardContent>
+  <CardContent>
+  <p>Contact : {y.Contact}</p>
+  </CardContent>
+  {/* <CardFooter>
+    <p>Card Footer</p>
+  </CardFooter> */}
+  <CardFooter>
+  <p>{y.BloodG}</p>
+  </CardFooter>
+</Card>
+
+       
+        
       ))
     ) : (
       <p>No User  available</p>
@@ -131,12 +167,30 @@ setSearch(true)
     :(
 displaydata.map((s,index)=>{
   return(
-    <div key={index} className="h-fit w-[15rem] rounded-lg text-xl mr-2 p-2 mb-4 font-roberto hover:border-white shadow-2xl  flex  flex-col justify-center items-center border-solid border-2 ">
-    <p>{s.Name}</p>
+   
+     <Card className='h-fit w-[16rem] hover:scale-105'>
+  <CardHeader>
+    {/* <CardTitle>Donor</CardTitle> */}
+    {/* <CardDescription>Card Description</CardDescription> */}
+  </CardHeader>
+  <CardContent>
+  <p>Name:{s.Name}</p>
+  </CardContent>
+  <CardContent>
   <p>Address:{s.Address}</p>
+  </CardContent>
+  <CardContent>
   <p>Contact : {s.Contact}</p>
-  <p>BloodGroup:{s.BloodGroup}</p>
-</div>
+  </CardContent>
+  {/* <CardFooter>
+    <p>Card Footer</p>
+  </CardFooter> */}
+  <CardFooter>
+  <p>{s.BloodG}</p>
+  </CardFooter>
+</Card>
+
+
 )
 })
 
