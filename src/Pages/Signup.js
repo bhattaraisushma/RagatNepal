@@ -21,7 +21,7 @@ const Signup = () => {
     } else {
       try {
         setProcessing(true)
-        console.log(' from signin clicked', name)
+        // console.log(' from signin clicked', name)
         const hit = await axios.post(
           'https://ragatnepal-1.onrender.com/signup',
           {
@@ -31,7 +31,7 @@ const Signup = () => {
         )
 console.log(hit)
         if (hit.status === 200) {
-          console.log('User found')
+          // console.log('User found')
           setLoggedin(true)
           navigate('/usersection')
         } 
@@ -40,7 +40,7 @@ console.log(hit)
           console.log('User not found')
         } else if (hit.status === 400) {
           alert('Password didnot match')
-          console.log('Password didnot match')
+          // console.log('Password didnot match')
          
         } else {
           console.log('Unexpected eror')

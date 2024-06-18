@@ -19,14 +19,14 @@ const Navbar = () => {
 
         
         setAuthentication(false)
-          console.log("hello from nav"+ authentication)
+          // console.log("hello from nav"+ authentication)
   })
  
 
   
 
      const[scroll,setScroll]=useState(false)
-     console.log( " from nav", authentication)
+    //  console.log( " from nav", authentication)
 
   useEffect(()=>{
    

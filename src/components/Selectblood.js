@@ -14,7 +14,7 @@ const Selectblood = () => {
     const handleSelect = (bloodType) => {
         setBlood(bloodType);
     };
-    console.log(blood)
+    // console.log(blood)
     return (
         <div className='h-9 w-14 shadow-lg flex  justify-center items-center' > 
             <DropdownMenu>

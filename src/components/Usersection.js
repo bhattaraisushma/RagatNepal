@@ -48,7 +48,7 @@ const Usersection = () => {
          { navigate('/login')}
         
    setAuthentication(true)
-              console.log("hello user "+ name + authentication)
+              // console.log("hello user "+ name + authentication)
       })
       
 const logout=()=>{
@@ -56,8 +56,8 @@ const logout=()=>{
      }
      
           const fetchdata= async(bloodgroup,location)=>{
-            console.log("i am bloodgroup"+  bloodgroup)
-            console.log("i am location"+  location)
+            // console.log("i am bloodgroup"+  bloodgroup)
+            // console.log("i am location"+  location)
 setSearch(true)
 
           try{
@@ -70,8 +70,8 @@ setSearch(true)
           )
           setBloodgroup(bloodgroup)
 
-          console.log( "result" )
-          console.log(bloodcheck)   
+          // console.log( "result" )
+          // console.log(bloodcheck)   
           setBloodcheck(bloodcheck)
           setLocation(location);
           }
