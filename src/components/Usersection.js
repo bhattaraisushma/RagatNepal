@@ -16,6 +16,15 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card"
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../components/ui/table"
 
 const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
@@ -83,8 +92,12 @@ setSearch(true)
           }
         }
    
-    
-     
+    const handleclick=(e)=>{
+      if(e.key==='Enter')
+      {
+        fetchdata(bloodgroup,location)
+      }
+    } 
 
   return (
     <>
@@ -125,75 +138,78 @@ setSearch(true)
           </Dropdown>
         
 <div className=' flex flex-row '>
-<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center md:w-[24rem] w-[10rem] right-0' ></input>
-<button className='w-[5rem] h-7 rounded-xl flex justify-center items-center mt-2 ' onClick={async()=>await fetchdata(bloodgroup,location)}><IoSearch /></button>
+<input type='text' placeholder='Search location' value={location} onChange={(e)=>  setLocation(e.target.value)} className=' border-2 border-[#BA882C] rounded-xl justify-center md:w-[24rem] w-[10rem] right-0'onKeyDown={handleclick} ></input>
+<button className='w-[5rem] h-7 rounded-xl flex justify-center items-center mt-2 '  onClick={async()=>await fetchdata(bloodgroup,location)}><IoSearch /></button>
 </div>
 </div>
           </div>
-          <div className="h-fit grid md:grid-cols-4 grid-cols-1 m-4  text-black font-roberto">
+          <div className="h-fit m-4  text-black  font-roberto">
             
   {
     search ? (bloodcheck?.data?.length > 0 ? (
-      bloodcheck.data.map((y, index) => (
+<div className='flex flex-col w-full gap-9 '>
+      {bloodcheck.data.map((y, index) => (
         
-              <Card className='h-fit w-[16rem] hover:scale-105'>
-  <CardHeader>
-    {/* <CardTitle>Donor</CardTitle> */}
-    {/* <CardDescription>Card Description</CardDescription> */}
-  </CardHeader>
-  <CardContent>
-  <p>Name:{y.Name}</p>
-  </CardContent>
-  <CardContent>
-  <p>Address:{y.Address}</p>
-  </CardContent>
-  <CardContent>
-  <p>Contact : {y.Contact}</p>
-  </CardContent>
-  {/* <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter> */}
-  <CardFooter>
-  <p>{y.BloodG}</p>
-  </CardFooter>
-</Card>
-
+        
+        <Table  className='w-full text-2xl  shadow-lg'>
+        <TableCaption></TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px] px-8 text-start  ">Name</TableHead>
+            <TableHead  className="w-[100px] px-8 text-start">Address</TableHead>
+          
+            <TableHead  className="w-[100px] px-8 text-start">Contact</TableHead>
+            <TableHead   className="w-[100px] px-8 text-start">Blood Group</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell  className="w-[100px] px-8 text-start">{y.Name}</TableCell>
+            <TableCell  className="w-[100px] px-8 text-start" >{y.Address}</TableCell>
+            <TableCell  className="w-[100px] px-8 text-start">{y.Contact}</TableCell>
+            <TableCell  className="w-[100px] px-8 text-start">{y.BloodG}</TableCell>
+          </TableRow>
+        </TableBody>
+        </Table>
        
         
-      ))
+      ))}
+      </div>
+
     ) : (
       <p>No User  available</p>
     ))
     :(
-displaydata.map((s,index)=>{
+      <div className='flex flex-col w-full text-2xl  gap-9'>
+{displaydata.map((s,index)=>{
   return(
    
-     <Card className='h-fit w-[16rem] hover:scale-105'>
-  <CardHeader>
-    {/* <CardTitle>Donor</CardTitle> */}
-    {/* <CardDescription>Card Description</CardDescription> */}
-  </CardHeader>
-  <CardContent>
-  <p>Name:{s.Name}</p>
-  </CardContent>
-  <CardContent>
-  <p>Address:{s.Address}</p>
-  </CardContent>
-  <CardContent>
-  <p>Contact : {s.Contact}</p>
-  </CardContent>
-  {/* <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter> */}
-  <CardFooter>
-  <p>{s.BloodG}</p>
-  </CardFooter>
-</Card>
 
+    <Table  className='w-full text-2xl '>
+    <TableCaption></TableCaption>
+    <TableHeader>
+      <TableRow>
+        <TableHead className="w-[100px] px-8 text-start  ">Name</TableHead>
+        <TableHead  className="w-[100px] px-8 text-start">Address</TableHead>
+      
+        <TableHead  className="w-[100px] px-8 text-start">Contact</TableHead>
+        <TableHead   className="w-[100px] px-8 text-start">Blood Group</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      <TableRow>
+        <TableCell  className="w-[100px] px-8 text-start">{s.Name}</TableCell>
+        <TableCell  className="w-[100px] px-8 text-start" >{s.Address}</TableCell>
+        <TableCell  className="w-[100px] px-8 text-start">{s.Contact}</TableCell>
+        <TableCell  className="w-[100px] px-8 text-start">{s.BloodG}</TableCell>
+      </TableRow>
+    </TableBody>
+    </Table>
+   
 
 )
-})
-
+})}
+</div>
     )
   }
 

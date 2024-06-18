@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Authnav from '../components/Authnetication'
+import Spinner from '../components/Spinner'
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -56,7 +57,7 @@ console.log(hit)
     setLogin(true)
   }
   return (
-    <div className="flex flex-col justify-center gap-8 h-fit  font-roberto">
+    <div className="flex flex-col justify-center gap-14 h-fit  font-roberto">
       <label className="text-[#08111C] flex text-3xl justify-center">
         Welcome back
       </label>
@@ -66,7 +67,7 @@ console.log(hit)
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="h-8 w-full rounded-md border-2 border-[#f2f4f7] "
+          className="h-12 w-full rounded-md border-2 border-black  "
           required
         ></input>{' '}
       </label>
@@ -74,29 +75,30 @@ console.log(hit)
         Password{' '}
         <input
           type="password"
-          className="h-8 w-full rounded-md border-2 border-[#f2f4f7] "
+          className="h-12 w-full rounded-md border-2 border-black "
           value={psw}
           onChange={(e) => setPsw(e.target.value)}
           required
         ></input>{' '}
       </label>
       <p
-        className="  hover:cursor-pointer flex justify-center"
+        className="  hover:cursor-pointer flex justify-center  "
         onClick={() => checklog()}
       >
         Don't have an account? Sign up now
       </p>
       <button
-        className="w-full h-12 rounded-lg  bg-[#BA882C] flex justify-center items-center  border-0  text-white text-xl ml-2 mr-2"
+        className="w-full h-12 rounded-lg  bg-[#BA882C] flex justify-center items-center  border-0  text-white text-xl  ml-2 mr-2"
         onClick={() => signincheck()}
       >
         {processing ? (
-          <svg
-            className="animate-spin h-7 w-7 mr-3 bg-white"
-            viewBox="0 0 24 24"
-          >
-            <p>Submit</p>
-          </svg>
+          // <svg
+          //   className="animate-spin h-7 w-7 mr-3 bg-white"
+          //   viewBox="0 0 24 24"
+          // >
+          //   <p>Submit</p>
+          // </svg>
+          <Spinner/>
         ) : (
           <>
             <p>Submit</p>
