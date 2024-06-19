@@ -25,6 +25,22 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu"
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select"
 
 const Usersection = () => {
   const[bloodgroup,setBloodgroup]=useState(null)
@@ -110,11 +126,23 @@ setSearch(true)
 
             <p>
               <div className="  mr-[3rem] h-[4rem] w-[4rem] rounded-full bg-[#e60700] ">
-                <img
+              
+                  <DropdownMenu>
+  <DropdownMenuTrigger>  <img
                   src={'red-bg.jpg'}
-                  className="h-[4rem] w-[4rem] rounded-full"  ></img>
+                  className="h-[4rem] w-[4rem] rounded-full"  ></img></DropdownMenuTrigger>
+  <DropdownMenuContent >
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+    <DropdownMenuItem>Team</DropdownMenuItem>
+    <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+{/* 
                   <Dropdown
-                   options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout()}></Dropdown>
+                   options={option} placeholder={ "Profile"} className='w-[9rem]  ' onChange={(e)=>logout()}></Dropdown> */}
               </div>
               {/* <p className='text-2xl'>Your profile</p> */}
             </p>
@@ -124,7 +152,9 @@ setSearch(true)
             
             <div className=' grid md:grid-cols-2 grid-cols-1 gap-4 '> 
 
-             
+      
+
+
          <Dropdown
          
          options={bloodoption} placeholder={ "Select Blood"} value={bloodgroup}
