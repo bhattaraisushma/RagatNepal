@@ -148,10 +148,7 @@ setSearch(true)
   {
     search ? (bloodcheck?.data?.length > 0 ? (
 <div className='flex flex-col w-full gap-9 '>
-      {bloodcheck.data.map((y, index) => (
-        
-        
-        <Table  className='w-full text-2xl  shadow-lg'>
+<Table  className='w-full text-2xl  shadow-lg '>
         <TableCaption></TableCaption>
         <TableHeader>
           <TableRow>
@@ -162,6 +159,10 @@ setSearch(true)
             <TableHead   className="w-[100px] px-8 text-start">Blood Group</TableHead>
           </TableRow>
         </TableHeader>
+      {bloodcheck.data.map((y, index) => (
+        
+        
+        
         <TableBody>
           <TableRow>
             <TableCell  className="w-[100px] px-8 text-start">{y.Name}</TableCell>
@@ -170,45 +171,53 @@ setSearch(true)
             <TableCell  className="w-[100px] px-8 text-start">{y.BloodG}</TableCell>
           </TableRow>
         </TableBody>
-        </Table>
-       
+      
         
       ))}
+        </Table>
+       
       </div>
 
     ) : (
       <p>No User  available</p>
     ))
     :(
-      <div className='flex flex-col w-full text-2xl  gap-9'>
+      <div className='flex flex-col w-full text-2xl  gap-9 '>
+         <Table  className='w-full text-2xl shadow-lg  '>
+    <TableCaption></TableCaption>
+    
+    <TableHeader >
+    
+      <TableRow >
+       
+        <TableHead className="w-[80px] px-8 text-start  ">Name</TableHead>
+        <TableHead  className="w-[80px] px-8 text-start">Address</TableHead>
+      
+        <TableHead  className="w-[80px] px-8 text-start">Contact</TableHead>
+        <TableHead   className="w-[80px] px-8 text-start">Blood Group</TableHead>
+      </TableRow>
+      </TableHeader>
 {displaydata.map((s,index)=>{
   return(
    
 
-    <Table  className='w-full text-2xl '>
-    <TableCaption></TableCaption>
-    <TableHeader>
-      <TableRow>
-        <TableHead className="w-[100px] px-8 text-start  ">Name</TableHead>
-        <TableHead  className="w-[100px] px-8 text-start">Address</TableHead>
-      
-        <TableHead  className="w-[100px] px-8 text-start">Contact</TableHead>
-        <TableHead   className="w-[100px] px-8 text-start">Blood Group</TableHead>
-      </TableRow>
-    </TableHeader>
+   
+
     <TableBody>
-      <TableRow>
-        <TableCell  className="w-[100px] px-8 text-start">{s.Name}</TableCell>
-        <TableCell  className="w-[100px] px-8 text-start" >{s.Address}</TableCell>
-        <TableCell  className="w-[100px] px-8 text-start">{s.Contact}</TableCell>
-        <TableCell  className="w-[100px] px-8 text-start">{s.BloodG}</TableCell>
+      <TableRow >
+        
+        <TableCell  className="w-[80px] px-8 text-start">{s.Name}</TableCell>
+        <TableCell  className="w-[80px] px-8 text-start" >{s.Address}</TableCell>
+        <TableCell  className="w-[80px] px-8 text-start">{s.Contact}</TableCell>
+        <TableCell  className="w-[80px] px-8 text-start ">{s.BloodGroup}</TableCell>
       </TableRow>
     </TableBody>
-    </Table>
+
    
 
 )
 })}
+    </Table>
 </div>
     )
   }
